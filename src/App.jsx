@@ -1,7 +1,13 @@
 import './App.css';
+import Nav from './components/Nav';
 
 function App() {
-  return <h1>Shopping cart</h1>;
+  return (
+    <>
+      <Nav />
+      <h1>Shopping cart</h1>
+    </>
+  );
 }
 
 export default App;

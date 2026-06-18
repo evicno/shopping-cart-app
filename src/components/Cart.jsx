@@ -1,5 +1,12 @@
+import Nav from './Nav';
+
 const Cart = () => {
-  return <h1>Cart</h1>;
+  return (
+    <>
+      <Nav />
+      <h1>Cart</h1>
+    </>
+  );
 };
 
 export default Cart;
