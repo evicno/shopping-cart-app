@@ -1,10 +1,13 @@
-import Nav from './Nav';
+import Navbar from './Navbar';
+import Items from './Items';
 
 const Shop = () => {
+  const data = [1, 2, 3, 4];
   return (
     <>
-      <Nav />
+      <Navbar />
       <h1>Shop</h1>
+      <Items itemsData={data} />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-const Nav = () => {
+const Navbar = () => {
   return (
     <nav>
       <ul>
@@ -18,4 +18,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navbar;
