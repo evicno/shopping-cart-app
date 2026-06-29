@@ -1,15 +1,15 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import App from './App';
+import Shop from './Shop';
 
-describe('App component', () => {
-  it('renders Navbar', () => {
+describe('Shop component', () => {
+  it('renders correct heading', () => {
     render(
       <MemoryRouter>
-        <App />
+        <Shop />
       </MemoryRouter>,
     );
-    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /shop/i })).toBeInTheDocument();
   });
 });
