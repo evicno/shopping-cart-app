@@ -26,4 +26,11 @@ describe('Navbar component', () => {
 
     expect(screen.getByRole('heading', { name: /home/i })).toBeInTheDocument();
   });
+
+  it('handles bad urls by rendering error page', () => {
+    const router = createMemoryRouter(routes, { initialEntries: ['/bad-url'] });
+    render(<RouterProvider router={router} />);
+
+    expect(screen.getByRole('heading', { name: /oh no/i })).toBeInTheDocument();
+  });
 });
