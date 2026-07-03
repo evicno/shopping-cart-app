@@ -1,15 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router';
+import { screen } from '@testing-library/react';
 import App from './App';
+import { renderWithRouter } from './utils/renderWithRouter';
 
 describe('App component', () => {
   it('renders Navbar', () => {
-    render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>,
-    );
+    renderWithRouter(<App />);
     expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
 });

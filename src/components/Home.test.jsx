@@ -1,17 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, createMemoryRouter, RouterProvider } from 'react-router';
+import { createMemoryRouter, RouterProvider } from 'react-router';
 import userEvent from '@testing-library/user-event';
 import Home from './Home';
 import routes from '../routes';
+import { renderWithRouter } from '../utils/renderWithRouter';
 
 describe('Home component', () => {
   it('renders correct heading', () => {
-    render(
-      <MemoryRouter>
-        <Home />
-      </MemoryRouter>,
-    );
+    renderWithRouter(<Home />);
     expect(screen.getByRole('heading', { name: /home/i })).toBeInTheDocument();
   });
 

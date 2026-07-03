@@ -1,15 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router';
+import { screen } from '@testing-library/react';
 import Cart from './Cart';
+import { renderWithRouter } from '../utils/renderWithRouter';
 
 describe('Cart component', () => {
   it('renders correct heading', () => {
-    render(
-      <MemoryRouter>
-        <Cart />
-      </MemoryRouter>,
-    );
+    renderWithRouter(<Cart />);
     expect(screen.getByRole('heading', { name: /cart/i })).toBeInTheDocument();
   });
 });
