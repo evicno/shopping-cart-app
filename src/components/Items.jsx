@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchProducts } from '../api/fetchProducts';
+import ItemCard from './ItemCard';
 
 const Items = () => {
   const [products, setProducts] = useState(null);
@@ -31,7 +32,9 @@ const Items = () => {
         <div className="items">
           <ul>
             {products.map((product) => (
-              <li key={product.id}>{product.title}</li>
+              <li key={product.id}>
+                <ItemCard product={product} />
+              </li>
             ))}
           </ul>
         </div>

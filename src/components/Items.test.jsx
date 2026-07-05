@@ -9,7 +9,7 @@ vi.mock(import('../api/fetchProducts'), () => ({
 }));
 
 describe('Items component', () => {
-  it('renders products after fetching', async () => {
+  it('renders right number of products after fetching', async () => {
     vi.mocked(fetchProducts).mockResolvedValue([
       { id: 1, title: 'T-shirt', price: 19.99, image: 'shirt.jpg' },
       { id: 2, title: 'Pants', price: 39.99, image: 'pants.jpg' },
@@ -18,7 +18,8 @@ describe('Items component', () => {
     renderWithRouter(<Items />);
 
     expect(fetchProducts).toHaveBeenCalledTimes(1);
-    expect(await screen.findByText('T-shirt')).toBeInTheDocument();
+    const items = await screen.findAllByRole('listitem');
+    expect(items).toHaveLength(2);
   });
 
   it('handles fetching error', async () => {
