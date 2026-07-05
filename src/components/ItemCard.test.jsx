@@ -18,7 +18,7 @@ describe('ItemCard component', () => {
     expect(
       screen.getByRole('heading', { name: /t-shirt/i }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/19\.99 €/i)).toBeInTheDocument();
+    expect(screen.getByText(/19,99 €/i)).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /t-shirt/i })).toBeInTheDocument();
   });
 });
