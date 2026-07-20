@@ -2,7 +2,9 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router';
 import userEvent from '@testing-library/user-event';
+import Navbar from './Navbar';
 import routes from '../routes';
+import { renderWithRouter } from '../utils/renderWithRouter';
 
 describe('Navbar component', () => {
   it('navigates to Shop, Cart and Home from App', async () => {
@@ -32,5 +34,11 @@ describe('Navbar component', () => {
     render(<RouterProvider router={router} />);
 
     expect(screen.getByRole('heading', { name: /oh no/i })).toBeInTheDocument();
+  });
+
+  it('renders the right amount of items in cart', () => {
+    const itemsCount = 3;
+    renderWithRouter(<Navbar itemsCount={itemsCount} />);
+    expect(screen.getByRole('link', { name: /3/i })).toBeInTheDocument();
   });
 });

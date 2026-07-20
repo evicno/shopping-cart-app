@@ -1,3 +1,5 @@
+import AddToCartForm from './AddToCartForm';
+
 function ItemCard({ product }) {
   const price = new Intl.NumberFormat('fr-FR', {
     style: 'currency',
@@ -5,9 +7,12 @@ function ItemCard({ product }) {
   }).format(product.price);
   return (
     <div className="item-card">
-      <h2>{product.title}</h2>
-      <p>Price: {price}</p>
-      <img src={product.image} alt={product.title} />
+      <div className="product">
+        <h2>{product.title}</h2>
+        <img src={product.image} alt={product.title} />
+        <p>Price: {price}</p>
+      </div>
+      <AddToCartForm id={product.id} />
     </div>
   );
 }
