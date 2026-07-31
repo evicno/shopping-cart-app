@@ -1,44 +1,21 @@
-import { useState, useEffect } from 'react';
-import { fetchProducts } from '../api/fetchProducts';
+import { useOutletContext } from 'react-router';
 import ItemCard from './ItemCard';
 
 const Items = () => {
-  const [products, setProducts] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let ignore = false;
-    fetchProducts()
-      .then((data) => {
-        if (!ignore) {
-          setProducts(data);
-          setLoading(false);
-        }
-      })
-      .catch((error) => {
-        if (!ignore) {
-          setLoading(false);
-          console.log(error);
-        }
-      });
-    return () => {
-      ignore = true;
-    };
-  }, []);
-
+  const context = useOutletContext();
   return (
     <>
-      {products ? (
+      {context?.products ? (
         <div className="items">
           <ul>
-            {products.map((product) => (
+            {context?.products.map((product) => (
               <li key={product.id}>
                 <ItemCard product={product} />
               </li>
             ))}
           </ul>
         </div>
-      ) : loading ? (
+      ) : context?.loading ? (
         <h1>Loading...</h1>
       ) : (
         <h1>Server Error</h1>

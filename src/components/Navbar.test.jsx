@@ -21,7 +21,9 @@ describe('Navbar component', () => {
     // tests Cart link
     await user.click(screen.getByRole('link', { name: /cart/i }));
 
-    expect(screen.getByRole('heading', { name: /cart/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 1, name: /cart/i }),
+    ).toBeInTheDocument();
 
     // tests Home link
     await user.click(screen.getByRole('link', { name: /home/i }));

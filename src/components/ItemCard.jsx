@@ -12,7 +12,7 @@ function ItemCard({ product }) {
         <img src={product.image} alt={product.title} />
         <p>Price: {price}</p>
       </div>
-      <AddToCartForm id={product.id} />
+      <AddToCartForm productId={product.id} />
     </div>
   );
 }

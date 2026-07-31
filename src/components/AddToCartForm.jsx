@@ -1,11 +1,11 @@
 import { useOutletContext } from 'react-router';
 
-function AddToCartForm({ itemId }) {
-  const addItemsToCart = useOutletContext();
+function AddToCartForm({ productId }) {
+  const context = useOutletContext();
 
   function handleSubmit(e) {
     e.preventDefault();
-    addItemsToCart(itemId, e.target.elements.quantity.value);
+    context.addItemsToCart(productId, e.target.elements.quantity.value);
     e.target.reset();
   }
 

@@ -12,9 +12,12 @@ vi.mock(import('./api/fetchProducts'), () => ({
 }));
 
 describe('App component', () => {
-  it('renders Navbar', () => {
+  it('renders Navbar', async () => {
+    vi.mocked(fetchProducts).mockResolvedValue([
+      { id: 1, title: 'T-shirt', price: 19.99, image: 'shirt.jpg' },
+    ]);
     renderWithRouter(<App />);
-    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(await screen.findByRole('navigation')).toBeInTheDocument();
   });
 
   it('renders the right amoount of items in Navbar when adding an item', async () => {
