@@ -15,7 +15,16 @@ vi.mock('react-router', async () => {
 describe('CartCard component', () => {
   it('renders cart card with correct data', () => {
     vi.mocked(useOutletContext).mockReturnValue({
-      itemsCount: 0,
+      products: [
+        { id: 1, title: 'T-shirt', price: 19.99, image: 'shirt.jpg' },
+        { id: 2, title: 'Pants', price: 39.99, image: 'pants.jpg' },
+      ],
     });
+    renderWithRouter(<CartCard quantity={2} productId={1} />);
+    expect(
+      screen.getByRole('heading', { name: /t-shirt/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/39,98 €/i)).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /shirt/i })).toBeInTheDocument();
   });
 });

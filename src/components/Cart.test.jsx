@@ -36,6 +36,10 @@ describe('Cart component', () => {
         [1, 2],
         [2, 2],
       ]),
+      products: [
+        { id: 1, title: 'T-shirt', price: 19.99, image: 'shirt.jpg' },
+        { id: 2, title: 'Pants', price: 39.99, image: 'pants.jpg' },
+      ],
     });
     renderWithRouter(<Cart />);
     const items = screen.getAllByRole('listitem');
