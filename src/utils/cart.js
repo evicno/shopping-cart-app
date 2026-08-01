@@ -6,7 +6,13 @@ export function getUpdatedCart(cart, id, quantity) {
   } else {
     // item to add already in cart
     const previousQty = Number(cart.get(id));
-    newCart.set(id, quantity + previousQty);
+    const newQty = previousQty + quantity;
+    if (newQty > 0) {
+      newCart.set(id, quantity + previousQty);
+    } else {
+      // newQuantity <=0, item removed from Map
+      newCart.delete(id);
+    }
   }
   return newCart;
 }
