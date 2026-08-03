@@ -1,7 +1,14 @@
+import { useState } from 'react';
 import { useOutletContext } from 'react-router';
 
 function AddToCartForm({ productId }) {
+  const [qty, setQty] = useState(0);
   const context = useOutletContext();
+  const disabledButton = qty <= 0;
+
+  function handleChange(e) {
+    setQty(e.target.value);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,8 +26,11 @@ function AddToCartForm({ productId }) {
         min="0"
         max="10"
         placeholder="0"
+        onChange={handleChange}
       />
-      <button type="submit">Add to cart</button>
+      <button type="submit" disabled={disabledButton}>
+        Add to cart
+      </button>
     </form>
   );
 }
