@@ -1,5 +1,6 @@
 import { useOutletContext } from 'react-router';
 import { formatPrice } from '../utils/price';
+import QuantitySelector from './QuantitySelector';
 
 const CartCard = ({ quantity, productId }) => {
   const context = useOutletContext();
@@ -13,6 +14,7 @@ const CartCard = ({ quantity, productId }) => {
       <img src={getProduct().image} alt={getProduct().title} />
       <h4>{getProduct().title}</h4>
       <p>Quantity: {quantity}</p>
+      <QuantitySelector productId={productId} quantity={quantity} />
       <p>Total: {formatPrice(getProduct().price * quantity)}</p>
     </>
   );

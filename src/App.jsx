@@ -38,11 +38,34 @@ function App() {
     setItemsInCart(getUpdatedCart(itemsInCart, id, Number(quantity)));
   };
 
+  const increaseQuantity = (id) => {
+    setItemsInCart(getUpdatedCart(itemsInCart, id, 1));
+  };
+
+  const decreaseQuantity = (id) => {
+    setItemsInCart(getUpdatedCart(itemsInCart, id, -1));
+  };
+
+  const removeItem = (id) => {
+    setItemsInCart(
+      getUpdatedCart(itemsInCart, id, -Number(itemsInCart.get(id))),
+    );
+  };
+
   return (
     <>
       <Navbar itemsCount={itemsCount} />
       <Outlet
-        context={{ addItemsToCart, itemsCount, itemsInCart, products, loading }}
+        context={{
+          addItemsToCart,
+          itemsCount,
+          itemsInCart,
+          products,
+          loading,
+          increaseQuantity,
+          decreaseQuantity,
+          removeItem,
+        }}
       />
     </>
   );

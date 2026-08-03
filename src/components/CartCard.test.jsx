@@ -27,4 +27,15 @@ describe('CartCard component', () => {
     expect(screen.getByText(/39,98 €/i)).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /shirt/i })).toBeInTheDocument();
   });
+
+  it('renders QuantitySelector', () => {
+    vi.mocked(useOutletContext).mockReturnValue({
+      products: [
+        { id: 1, title: 'T-shirt', price: 19.99, image: 'shirt.jpg' },
+        { id: 2, title: 'Pants', price: 39.99, image: 'pants.jpg' },
+      ],
+    });
+    renderWithRouter(<CartCard quantity={2} productId={1} />);
+    expect(screen.getByRole('button', { name: /remove/i })).toBeInTheDocument();
+  });
 });
