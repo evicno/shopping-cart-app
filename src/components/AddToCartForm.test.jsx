@@ -10,7 +10,7 @@ describe('AddToCartForm component', () => {
     expect(screen.getByRole('button')).toBeDisabled();
   });
 
-  it('button disabled when quantity selected is above 0', async () => {
+  it('button enabled when quantity selected is above 0', async () => {
     const user = userEvent.setup();
 
     renderWithRouter(<AddToCartForm />);
