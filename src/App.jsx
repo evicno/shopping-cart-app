@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router';
-import './App.css';
+import '../src/styles/App.css';
 import Navbar from './components/Navbar';
 import { getUpdatedCart } from './utils/cart';
 import { fetchProducts } from './api/fetchProducts';
@@ -53,21 +53,23 @@ function App() {
   };
 
   return (
-    <>
+    <div class="app-content">
       <Navbar itemsCount={itemsCount} />
-      <Outlet
-        context={{
-          addItemsToCart,
-          itemsCount,
-          itemsInCart,
-          products,
-          loading,
-          increaseQuantity,
-          decreaseQuantity,
-          removeItem,
-        }}
-      />
-    </>
+      <div className="outlet">
+        <Outlet
+          context={{
+            addItemsToCart,
+            itemsCount,
+            itemsInCart,
+            products,
+            loading,
+            increaseQuantity,
+            decreaseQuantity,
+            removeItem,
+          }}
+        />
+      </div>
+    </div>
   );
 }
 

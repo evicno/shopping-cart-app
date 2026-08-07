@@ -28,7 +28,7 @@ describe('Navbar component', () => {
     // tests Home link
     await user.click(screen.getByRole('link', { name: /home/i }));
 
-    expect(screen.getByRole('heading', { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /store/i })).toBeInTheDocument();
   });
 
   it('handles bad urls by rendering error page', () => {

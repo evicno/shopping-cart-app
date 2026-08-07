@@ -1,0 +1,9 @@
+body {
+  min-height: 100dvh;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--dark-primary-color);
+}
+
+nav {
+  height: 8rem;
+}

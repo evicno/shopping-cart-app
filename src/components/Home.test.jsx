@@ -9,7 +9,7 @@ import { renderWithRouter } from '../utils/renderWithRouter';
 describe('Home component', () => {
   it('renders correct heading', () => {
     renderWithRouter(<Home />);
-    expect(screen.getByRole('heading', { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /store/i })).toBeInTheDocument();
   });
 
   it('renders Shop page after clicking the button', async () => {
