@@ -6,4 +6,33 @@ body {
 
 nav {
   height: 8rem;
+  border-bottom: 2px solid var(--dark-primary-color);
+}
+
+nav {
+  height: 5rem;
+  flex-shrink: 0;
+  background-color: var(--secondary-color);
+}
+
+nav ul {
+  height: 100%;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav a:hover {
+  font-size: 1.55rem;
+}
+
+nav a.active {
+  font-weight: bold;
 }

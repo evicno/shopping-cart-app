@@ -4,25 +4,6 @@
   height: 100dvh;
 }
 
-nav {
-  height: 5rem;
-  flex-shrink: 0;
-  background-color: var(--secondary-color);
-}
-
-nav ul {
-  height: 100%;
-  display: flex;
-  list-style-type: none;
-  justify-content: space-around;
-  align-items: center;
-}
-
-a {
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-
 .outlet {
   background-image: url('../assets/home-background.jpg');
   background-size: cover;
@@ -32,22 +13,23 @@ a {
 .home {
   padding-left: 2rem;
   padding-top: 3rem;
-  width: 30rem;
+  width: 40rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
 }
 
-h1 {
+.outlet h1 {
   font-weight: 700;
-  font-size: 5rem;
+  font-size: 6rem;
 }
 
 .home-button {
   height: 4rem;
   width: 8rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   border-radius: 1rem;
   border-color: var(--dark-primary-color);
   background: var(--secondary-color);

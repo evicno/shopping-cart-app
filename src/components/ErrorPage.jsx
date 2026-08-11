@@ -1,12 +1,13 @@
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
+import '../styles/App.css';
 
 const ErrorPage = () => {
   return (
     <div>
       <h1>Oh no, this page doesn't exist!</h1>
-      <Link to="/">
+      <NavLink to="/">
         You can go back to the home page by clicking here, though!
-      </Link>
+      </NavLink>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 import '../styles/Home.css';
 
 const Navbar = ({ itemsCount }) => {
@@ -6,15 +6,15 @@ const Navbar = ({ itemsCount }) => {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/shop">Shop</Link>
+          <NavLink to="/shop">Shop</NavLink>
         </li>
         <li>
-          <Link to="/cart">
+          <NavLink to="/cart">
             Cart <span>({itemsCount})</span>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>
