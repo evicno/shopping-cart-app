@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router';
+import '../styles/Cart.css';
 
 const QuantitySelector = ({ productId, quantity }) => {
   const context = useOutletContext();
