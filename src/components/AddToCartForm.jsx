@@ -15,6 +15,7 @@ function AddToCartForm({ productId }) {
     e.preventDefault();
     context.addItemsToCart(productId, e.target.elements.quantity.value);
     e.target.reset();
+    setQty(0);
   }
 
   return (
