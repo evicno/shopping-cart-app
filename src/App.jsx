@@ -53,7 +53,7 @@ function App() {
   };
 
   return (
-    <div class="app-content">
+    <div className="app-content">
       <Navbar itemsCount={itemsCount} />
       <div className="outlet">
         <Outlet

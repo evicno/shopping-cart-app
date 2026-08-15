@@ -4,9 +4,9 @@ import '../styles/Home.css';
 const Home = () => {
   let navigate = useNavigate();
   return (
-    <div class="home">
+    <div className="home">
       <h1>The Store</h1>
-      <button onClick={() => navigate('/shop')} class="home-button">
+      <button onClick={() => navigate('/shop')} className="home-button">
         Shop
       </button>
     </div>

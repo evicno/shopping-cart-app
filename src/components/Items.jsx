@@ -9,7 +9,7 @@ const Items = () => {
       {context?.products ? (
         <ul className="items">
           {context?.products.map((product) => (
-            <li key={product.id} class="item-card">
+            <li key={product.id} className="item-card">
               <ItemCard product={product} />
             </li>
           ))}
