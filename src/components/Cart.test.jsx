@@ -45,4 +45,19 @@ describe('Cart component', () => {
     const items = screen.getAllByRole('listitem');
     expect(items).toHaveLength(2);
   });
+
+  it('renders correct total price', () => {
+    vi.mocked(useOutletContext).mockReturnValue({
+      itemsInCart: new Map([
+        [1, 2],
+        [2, 2],
+      ]),
+      products: [
+        { id: 1, title: 'T-shirt', price: 19.99, image: 'shirt.jpg' },
+        { id: 2, title: 'Pants', price: 39.99, image: 'pants.jpg' },
+      ],
+    });
+    renderWithRouter(<Cart />);
+    expect(screen.getByText(/119,96 €/i)).toBeInTheDocument();
+  });
 });

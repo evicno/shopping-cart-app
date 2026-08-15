@@ -1,26 +1,23 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { screen } from '@testing-library/react';
 import CartCard from './CartCard';
 import { renderWithRouter } from '../utils/renderWithRouter';
-import { useOutletContext } from 'react-router';
 
-vi.mock('react-router', async () => {
-  const actual = await vi.importActual('react-router');
-  return {
-    ...actual,
-    useOutletContext: vi.fn(),
-  };
-});
+const mockProduct = vi.fn();
 
 describe('CartCard component', () => {
-  it('renders cart card with correct data', () => {
-    vi.mocked(useOutletContext).mockReturnValue({
-      products: [
-        { id: 1, title: 'T-shirt', price: 19.99, image: 'shirt.jpg' },
-        { id: 2, title: 'Pants', price: 39.99, image: 'pants.jpg' },
-      ],
+  beforeEach(() => {
+    vi.mocked(mockProduct).mockReturnValue({
+      id: 1,
+      title: 'T-shirt',
+      price: 19.99,
+      image: 'shirt.jpg',
     });
-    renderWithRouter(<CartCard quantity={2} productId={1} />);
+  });
+  it('renders cart card with correct data', () => {
+    renderWithRouter(
+      <CartCard quantity={2} productId={1} getProduct={mockProduct} />,
+    );
     expect(
       screen.getByRole('heading', { name: /t-shirt/i }),
     ).toBeInTheDocument();
@@ -29,13 +26,9 @@ describe('CartCard component', () => {
   });
 
   it('renders QuantitySelector', () => {
-    vi.mocked(useOutletContext).mockReturnValue({
-      products: [
-        { id: 1, title: 'T-shirt', price: 19.99, image: 'shirt.jpg' },
-        { id: 2, title: 'Pants', price: 39.99, image: 'pants.jpg' },
-      ],
-    });
-    renderWithRouter(<CartCard quantity={2} productId={1} />);
+    renderWithRouter(
+      <CartCard quantity={2} productId={1} getProduct={mockProduct} />,
+    );
     expect(screen.getByRole('button', { name: /remove/i })).toBeInTheDocument();
   });
 });
