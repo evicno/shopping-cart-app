@@ -2,7 +2,7 @@
 
 A mock e-commerce shopping cart built as part of [The Odin Project](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart). The app lets users browse products fetched from the [Fake Store API](https://fakestoreapi.com), add them to a cart, and manage quantities — all without an actual checkout/payment flow.
 
-**Live demo:** []
+**[Live demo](https://evicno-shopping-cart.netlify.app/shop)**
 
 ![preview](./src/assets/screenshot.png)
 
