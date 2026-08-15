@@ -1,10 +1,8 @@
-//import { useOutletContext } from 'react-router';
 import { formatPrice } from '../utils/price';
 import QuantitySelector from './QuantitySelector';
 import '../styles/Cart.css';
 
 const CartCard = ({ quantity, productId, getProduct }) => {
-  // const context = useOutletContext();
   const product = getProduct(productId);
   return (
     <div className="cart-card">
