@@ -7,13 +7,13 @@ const CartCard = ({ quantity, productId, getProduct }) => {
   // const context = useOutletContext();
   const product = getProduct(productId);
   return (
-    <>
-      <img src={product.image} alt={product.title} />
+    <div className="cart-card">
+      <img src={product.image} alt={product.title} height="70" />
       <h4>{product.title}</h4>
-      <p>Quantity: {quantity}</p>
+      <p>{quantity}</p>
       <QuantitySelector productId={productId} quantity={quantity} />
-      <p>Total: {formatPrice(product.price * quantity)}</p>
-    </>
+      <p>{formatPrice(product.price * quantity)}</p>
+    </div>
   );
 };
 

@@ -18,31 +18,29 @@ const Cart = () => {
   })();
 
   return (
-    <>
+    <div className="cart">
       <h1>Cart</h1>
       {context?.itemsCount === 0 ? (
         <h2>Your cart is empty</h2>
       ) : (
         <div className="cart-content">
-          <div className="cart-items">
-            <ul>
-              {Array.from(context?.itemsInCart ?? []).map(([id, quantity]) => (
-                <li key={id}>
-                  <CartCard
-                    quantity={quantity}
-                    productId={id}
-                    getProduct={getProduct}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="cart-items">
+            {Array.from(context?.itemsInCart ?? []).map(([id, quantity]) => (
+              <li key={id}>
+                <CartCard
+                  quantity={quantity}
+                  productId={id}
+                  getProduct={getProduct}
+                />
+              </li>
+            ))}
+          </ul>
           <div className="order-summary">
             <h2>Total: {totalPrice}</h2>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
